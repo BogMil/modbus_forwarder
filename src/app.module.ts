@@ -5,7 +5,12 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ModbusService } from './modbus.service';
-import { ModbusTask } from './modbus.task';
+import {
+  HttpLoggerService,
+  ModbusTask,
+  PlcServer,
+  ScadaReader,
+} from './modbus.task';
 
 @Module({
   imports: [
@@ -16,6 +21,13 @@ import { ModbusTask } from './modbus.task';
     HttpModule,
   ],
   controllers: [AppController],
-  providers: [AppService, ModbusTask, ModbusService],
+  providers: [
+    AppService,
+    ModbusTask,
+    ModbusService,
+    PlcServer,
+    ScadaReader,
+    HttpLoggerService,
+  ],
 })
 export class AppModule {}
