@@ -101,7 +101,7 @@ export class HttpLoggerService {
       console.log(data);
       this.httpService
         .post(
-          `http://localhost:3333/log/factory/3/room/${key}`,
+          `http://localhost:3333/log/factories/3/rooms/${key}`,
           roomData.toPostData(),
         )
         .subscribe(
@@ -361,7 +361,7 @@ export class ModbusTask {
       } catch (e) {
         console.log(e);
       }
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 5000));
     }
   }
 }
